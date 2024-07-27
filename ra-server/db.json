@@ -70,10 +70,10 @@
     {
       "id": 2,
       "category_id": 1,
-      "title": "Brown Cow",
+      "title": "Brown Cowards",
       "width": 32,
       "height": 26,
-      "price": 45,
+      "price": 97,
       "thumbnail": "https://marmelab.com/posters/animals-3.jpeg",
       "image": "https://marmelab.com/posters/animals-3.jpeg",
       "description": "A brown cow grazing peacefully.",
@@ -690,6 +690,19 @@
       "description": "An apricot tree in full bloom.",
       "stock": 31,
       "sales": 7
+    },
+    {
+      "id": "69",
+      "category_id": 2,
+      "title": "Zigzag",
+      "width": 69,
+      "height": 69,
+      "price": 120,
+      "thumbnail": "https://pbs.twimg.com/media/GTdzCxkagAEjPA6?format=jpg&name=4096x4096",
+      "image": "https://pbs.twimg.com/media/GTdzCxkagAEjPA6?format=jpg&name=4096x4096",
+      "description": "YAHOO",
+      "stock": 12,
+      "sales": null
     }
   ]
 }

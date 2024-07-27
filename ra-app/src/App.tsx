@@ -7,22 +7,20 @@ import { CategoryList } from "./components/CategoryList";
 import { CategoryEdit } from "./components/CategoryEdit";
 import { CategoryCreate } from "./components/CategoryCreate";
 
-const dataProvider = jsonServerProvider("http://localhost:3000");
-
+const dataProvider = jsonServerProvider("http://localhost:3300");
 const App = () => (
   <Admin dataProvider={dataProvider}>
-    <Resource
-      name="posters"
-      list={PosterList}
-      edit={PosterEdit}
-      create={PosterCreate}
-    />
     <Resource
       name="categories"
       list={CategoryList}
       edit={CategoryEdit}
       create={CategoryCreate}
-      // recordRepresentation="name"
+    />
+    <Resource
+      name="posters"
+      list={PosterList}
+      edit={PosterEdit}
+      create={PosterCreate}
     />
   </Admin>
 );

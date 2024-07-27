@@ -1,17 +1,24 @@
 import {
-  ExportButton,
   ImageField,
   List,
   NumberField,
   ReferenceField,
-  SelectColumnsButton,
   TextField,
-  TopToolbar,
   useRecordContext,
-  DatagridConfigurable,
   EditButton,
+  TopToolbar,
+  SelectColumnsButton,
+  ExportButton,
+  DatagridConfigurable,
 } from "react-admin";
 import { PosterFilterSidebar } from "./FilterList";
+
+const PosterListAction = () => (
+  <TopToolbar>
+    <SelectColumnsButton />
+    <ExportButton />
+  </TopToolbar>
+);
 
 const UrlField = ({ source }: { source: string }) => {
   const record = useRecordContext();
@@ -23,33 +30,28 @@ const UrlField = ({ source }: { source: string }) => {
   );
 };
 
-const PosterListActions = () => (
-  <TopToolbar>
-    <SelectColumnsButton />
-    <ExportButton />
-  </TopToolbar>
-);
-
 export const PosterList = () => (
-  <List aside={<PosterFilterSidebar />} actions={<PosterListActions />}>
+  <List aside={<PosterFilterSidebar />} actions={<PosterListAction />}>
     <DatagridConfigurable>
       <TextField source="id" />
+      <ReferenceField source="category_id" reference="categories">
+        <TextField source="name" />
+      </ReferenceField>
       <TextField source="title" />
+      <NumberField source="width" label="Width (CM)" />
+      <NumberField source="height" label="Height (CM)" />
+      <NumberField source="price" />
       <ImageField
         source="thumbnail"
         title="title"
         sx={{
-          "& img": { maxWidth: 80, maxHeight: 80, objectFit: "contain" },
+          "& img": { maxWidth: 80, maxHeight: 180, objectFit: "contain" },
         }}
       />
-      <ReferenceField source="category_id" reference="categories" />
-      <NumberField source="width" label="width(cm)" />
-      <NumberField source="height" label="height(cm)" />
-      <NumberField source="price" />
       <UrlField source="image" />
       <TextField source="description" />
       <NumberField source="stock" />
-      <NumberField source="sales" sx={{ fontWeight: "bold" }} />
+      <NumberField source="sales" sx={{ fontWeight: "bold" }} emptyText="N/A" />
       <EditButton />
     </DatagridConfigurable>
   </List>
